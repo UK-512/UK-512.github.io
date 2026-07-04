@@ -9,8 +9,8 @@ Personal portfolio of **Udayakrishna Duraisamy** — Cloud Engineer (GCP · AWS 
 Plain HTML, CSS, and JavaScript — no frameworks, no build step. Deploys directly via GitHub Pages.
 
 - `index.html` — single-page portfolio (about, skills, experience, projects, security, contact)
-- `styles.css` — dark/light theming via CSS custom properties and `prefers-color-scheme`
-- `script.js` — theme toggle, mobile nav, scroll reveal, and live repo cards from the GitHub API (with static fallback)
+- `styles.css` — dark/light theming and two switchable templates (Classic and Linux Terminal) via CSS custom properties
+- `script.js` — theme toggle, template switcher, mobile nav, scroll reveal, and curated GitHub repo cards enriched live from the GitHub API
 
 ## Local preview
 

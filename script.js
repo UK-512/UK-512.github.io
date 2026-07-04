@@ -28,6 +28,29 @@
     });
   }
 
+  /* ---------- template switcher (classic / terminal) ---------- */
+  var TEMPLATES = ["classic", "terminal"];
+  var templateToggle = document.getElementById("templateToggle");
+
+  var savedTemplate = null;
+  try { savedTemplate = localStorage.getItem("template"); } catch (e) { /* ignore */ }
+  if (TEMPLATES.indexOf(savedTemplate) > 0) {
+    root.setAttribute("data-template", savedTemplate);
+  }
+
+  if (templateToggle) {
+    templateToggle.addEventListener("click", function () {
+      var current = root.getAttribute("data-template") || "classic";
+      var next = TEMPLATES[(TEMPLATES.indexOf(current) + 1) % TEMPLATES.length];
+      if (next === "classic") {
+        root.removeAttribute("data-template");
+      } else {
+        root.setAttribute("data-template", next);
+      }
+      try { localStorage.setItem("template", next); } catch (e) { /* ignore */ }
+    });
+  }
+
   /* ---------- mobile nav ---------- */
   var navToggle = document.getElementById("navToggle");
   var navLinks = document.getElementById("navLinks");
@@ -83,48 +106,28 @@
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  /* ---------- GitHub repos ---------- */
-  var repoGrid = document.getElementById("repoGrid");
-  if (!repoGrid || !window.fetch) return;
+  /* ---------- GitHub repos ----------
+     The card list is a curated selection in the HTML; the API only
+     refreshes stars/language on those cards. If it fails, the static
+     values remain — nothing is added or removed. */
+  var repoCards = document.querySelectorAll("#repoGrid [data-repo]");
+  if (!repoCards.length || !window.fetch) return;
 
-  var API_URL = "https://api.github.com/users/UK-512/repos?per_page=100&sort=updated";
-
-  fetch(API_URL)
+  fetch("https://api.github.com/users/UK-512/repos?per_page=100")
     .then(function (res) {
       if (!res.ok) throw new Error("GitHub API " + res.status);
       return res.json();
     })
     .then(function (repos) {
-      var own = repos
-        .filter(function (r) { return !r.fork && r.name.toLowerCase() !== "uk-512.github.io"; })
-        .sort(function (a, b) {
-          if (b.stargazers_count !== a.stargazers_count) {
-            return b.stargazers_count - a.stargazers_count;
-          }
-          return new Date(b.pushed_at) - new Date(a.pushed_at);
-        })
-        .slice(0, 6);
+      var byName = {};
+      repos.forEach(function (r) { byName[r.name] = r; });
 
-      if (own.length === 0) return; // keep static fallback
+      repoCards.forEach(function (card) {
+        var repo = byName[card.getAttribute("data-repo")];
+        var meta = card.querySelector(".repo-meta");
+        if (!repo || !meta) return;
 
-      repoGrid.innerHTML = "";
-      own.forEach(function (repo) {
-        var card = document.createElement("article");
-        card.className = "card repo-card";
-
-        var h3 = document.createElement("h3");
-        var link = document.createElement("a");
-        link.href = repo.html_url;
-        link.target = "_blank";
-        link.rel = "noopener";
-        link.textContent = repo.name;
-        h3.appendChild(link);
-
-        var desc = document.createElement("p");
-        desc.textContent = repo.description || "No description yet.";
-
-        var meta = document.createElement("div");
-        meta.className = "repo-meta";
+        meta.innerHTML = "";
         if (repo.language) {
           var lang = document.createElement("span");
           var dot = document.createElement("span");
@@ -133,17 +136,14 @@
           lang.appendChild(document.createTextNode(repo.language));
           meta.appendChild(lang);
         }
-        var stars = document.createElement("span");
-        stars.textContent = "★ " + repo.stargazers_count;
-        meta.appendChild(stars);
-
-        card.appendChild(h3);
-        card.appendChild(desc);
-        card.appendChild(meta);
-        repoGrid.appendChild(card);
+        if (repo.stargazers_count > 0) {
+          var stars = document.createElement("span");
+          stars.textContent = "★ " + repo.stargazers_count;
+          meta.appendChild(stars);
+        }
       });
     })
     .catch(function () {
-      /* API unreachable or rate-limited: static fallback cards remain */
+      /* API unreachable or rate-limited: static values remain */
     });
 })();

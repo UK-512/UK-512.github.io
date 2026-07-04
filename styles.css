@@ -437,6 +437,12 @@ a:hover { text-decoration: underline; }
   margin: 0 auto 2rem;
   color: var(--text-muted);
 }
+.contact-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: center;
+}
 
 .site-footer {
   border-top: 1px solid var(--border);
@@ -488,7 +494,7 @@ html.js .reveal.visible {
   .timeline-item { grid-template-columns: 1fr; gap: 0.9rem; }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 920px) {
   .nav-toggle { display: flex; }
   .nav-links {
     position: absolute;
@@ -512,3 +518,194 @@ html.js .reveal.visible {
   .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
   .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 }
+
+/* ============================================================
+   TEMPLATE: TERMINAL  (html[data-template="terminal"])
+   Same content and structure — restyled as a Linux terminal.
+   Dark theme: green-on-black. Light theme: "paper terminal".
+   ============================================================ */
+
+:root[data-template="terminal"] {
+  --bg: #0a0e0a;
+  --bg-soft: #0f140f;
+  --bg-card: #0d120d;
+  --border: #1f3d24;
+  --text: #c8f7c5;
+  --text-muted: #7fbf7a;
+  --accent: #33ff66;
+  --accent-soft: rgba(51, 255, 102, 0.08);
+  --accent-contrast: #04210a;
+  --shadow: none;
+  --radius: 0;
+  color-scheme: dark;
+}
+
+:root[data-template="terminal"][data-theme="light"] {
+  --bg: #f4f4ec;
+  --bg-soft: #ffffff;
+  --bg-card: #fbfbf4;
+  --border: #9aa88f;
+  --text: #1c2b1c;
+  --text-muted: #4c664c;
+  --accent: #0a7a2f;
+  --accent-soft: rgba(10, 122, 47, 0.08);
+  --accent-contrast: #f4f4ec;
+  --shadow: none;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: light) {
+  :root[data-template="terminal"]:not([data-theme]) {
+    --bg: #f4f4ec;
+    --bg-soft: #ffffff;
+    --bg-card: #fbfbf4;
+    --border: #9aa88f;
+    --text: #1c2b1c;
+    --text-muted: #4c664c;
+    --accent: #0a7a2f;
+    --accent-soft: rgba(10, 122, 47, 0.08);
+    --accent-contrast: #f4f4ec;
+    --shadow: none;
+    color-scheme: light;
+  }
+}
+
+:root[data-template="terminal"] body {
+  font-family: ui-monospace, "Cascadia Code", "JetBrains Mono", "Fira Code",
+    Menlo, Consolas, "DejaVu Sans Mono", monospace;
+  font-size: 0.95rem;
+}
+
+/* square everything, kill decorative depth */
+:root[data-template="terminal"] .card,
+:root[data-template="terminal"] .skill-card,
+:root[data-template="terminal"] .about-facts,
+:root[data-template="terminal"] .btn,
+:root[data-template="terminal"] .theme-toggle,
+:root[data-template="terminal"] .tags li,
+:root[data-template="terminal"] .cert-badge {
+  border-radius: 0;
+  box-shadow: none;
+}
+:root[data-template="terminal"] .card:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--accent);
+}
+:root[data-template="terminal"] .btn:hover { transform: none; }
+
+/* headings become shell commands */
+:root[data-template="terminal"] .section h2 {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 0.6rem;
+}
+:root[data-template="terminal"] .section h2 .section-num { display: none; }
+:root[data-template="terminal"] .section h2::before {
+  content: "uk@512:~$ cat ./";
+  color: var(--text-muted);
+  font-weight: 400;
+}
+:root[data-template="terminal"] .section h2::after {
+  content: ".md";
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* hero as a login banner */
+:root[data-template="terminal"] .hero { min-height: 0; padding-top: 3.5rem; }
+:root[data-template="terminal"] .hero-hello { text-transform: lowercase; }
+:root[data-template="terminal"] .hero-hello::before {
+  content: "last login: ";
+  color: var(--text-muted);
+}
+:root[data-template="terminal"] .hero h1 {
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  letter-spacing: -0.01em;
+}
+:root[data-template="terminal"] .hero h1::after {
+  content: "▊";
+  color: var(--accent);
+  margin-left: 0.15em;
+  animation: term-blink 1.1s steps(1) infinite;
+}
+@keyframes term-blink { 50% { opacity: 0; } }
+:root[data-template="terminal"] .hero-title::before { content: "> "; color: var(--accent); }
+:root[data-template="terminal"] .hero-tagline::before { content: "> "; color: var(--accent); }
+:root[data-template="terminal"] .hero-avatar img {
+  border-radius: 0;
+  border: 1px solid var(--accent);
+  filter: grayscale(35%) contrast(1.05);
+}
+:root[data-template="terminal"] .avatar-ring { display: none; }
+
+/* buttons look like bracketed commands */
+:root[data-template="terminal"] .btn { text-transform: lowercase; }
+:root[data-template="terminal"] .btn::before { content: "["; opacity: 0.7; margin-right: 0.35em; }
+:root[data-template="terminal"] .btn::after { content: "]"; opacity: 0.7; margin-left: 0.35em; }
+:root[data-template="terminal"] .btn-primary {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+:root[data-template="terminal"] .btn-primary:hover {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  filter: none;
+}
+
+/* nav */
+:root[data-template="terminal"] .brand { text-transform: lowercase; }
+:root[data-template="terminal"] .nav-links a { text-transform: lowercase; }
+:root[data-template="terminal"] .nav-links a::before { content: "./"; color: var(--text-muted); }
+
+/* tags read like flags */
+:root[data-template="terminal"] .tags li {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+:root[data-template="terminal"] .tags li::before { content: "--"; color: var(--accent); }
+
+/* timeline as a process tree */
+:root[data-template="terminal"] .timeline-item { border-left: 1px dashed var(--border); }
+:root[data-template="terminal"] .timeline-item::before {
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 0;
+}
+:root[data-template="terminal"] .timeline-points { list-style: none; padding-left: 0; }
+:root[data-template="terminal"] .timeline-points li::before {
+  content: "* ";
+  color: var(--accent);
+}
+
+/* lists / facts */
+:root[data-template="terminal"] .fact-label { text-transform: lowercase; }
+:root[data-template="terminal"] .fact-label::after { content: ":"; }
+
+/* section links */
+:root[data-template="terminal"] .card-link::before { content: "→ "; }
+
+/* footer */
+:root[data-template="terminal"] .site-footer { border-top: 1px dashed var(--border); }
+
+/* single-column, reading-width alignment for card grids */
+@media (min-width: 861px) {
+  :root[data-template="terminal"] .cards-grid,
+  :root[data-template="terminal"] .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-template="terminal"] .hero h1::after { animation: none; }
+}
+
+/* terminal nav sizing (monospace runs wider) */
+:root[data-template="terminal"] .brand { font-size: 1rem; }
+:root[data-template="terminal"] .nav-links { gap: 0.9rem; }
+:root[data-template="terminal"] .nav-links a { font-size: 0.85rem; }

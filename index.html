@@ -1,46 +1,291 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-    <title>My Website</title>
-
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Udayakrishna Duraisamy — Cloud Engineer</title>
+  <meta name="description" content="Udayakrishna Duraisamy — Cloud Engineer specializing in Google Cloud, AWS, Terraform, FinOps and Cloud Security. I build, migrate, and secure production cloud platforms." />
+  <meta property="og:title" content="Udayakrishna Duraisamy — Cloud Engineer" />
+  <meta property="og:description" content="Cloud Engineer · GCP | AWS | DevOps | Cloud Security" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://uk-512.github.io/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁️</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-<div>
-    <h1>My GitHub Profile Website</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
-</div>
+
+<header class="site-header">
+  <nav class="nav container" aria-label="Main navigation">
+    <a class="brand" href="#top">Udayakrishna<span class="accent">·</span>Duraisamy</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#github">GitHub</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero container">
+    <div class="hero-text reveal">
+      <p class="hero-hello">Hi, I'm</p>
+      <h1>Udayakrishna <span class="accent">Duraisamy</span></h1>
+      <p class="hero-title">Cloud Engineer · GCP&nbsp;|&nbsp;AWS&nbsp;|&nbsp;DevOps&nbsp;|&nbsp;Cloud&nbsp;Security</p>
+      <p class="hero-tagline">
+        I build, migrate, and secure production cloud platforms on Google Cloud and AWS —
+        with infrastructure as code, FinOps discipline, and a security-first mindset.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">View my work</a>
+        <a class="btn btn-ghost" href="https://github.com/UK-512" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="mailto:udaycharan12@gmail.com">Email me</a>
+      </div>
+    </div>
+    <div class="hero-avatar reveal">
+      <img src="https://avatars.githubusercontent.com/u/24558579?v=4" alt="Portrait of Udayakrishna Duraisamy" width="220" height="220" loading="lazy" />
+      <div class="avatar-ring" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="container section reveal">
+    <h2><span class="section-num">01.</span> About</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a Cloud Engineer at <strong>SecureKloud Technologies</strong>, where I design and run
+          production environments on <strong>Google Cloud Platform</strong> for enterprise clients in
+          banking, housing finance, and logistics — end to end, from VPC networking and IAM to
+          Cloud Run services, Cloud SQL, load balancing, and domain cutover.
+        </p>
+        <p>
+          My day-to-day spans <strong>cloud migrations</strong> (standalone projects into governed
+          organizations, cross-cloud data moves), <strong>automation</strong> in Python, Bash, and
+          Terraform, and <strong>FinOps</strong> — billing pipelines, scheduled cost reporting, and
+          reservation-based cost modelling that clients actually use to make decisions.
+        </p>
+        <p>
+          Outside work hours I go deep on <strong>security</strong>: Google Cloud security
+          certification, CEH v12 study, CTFs, and community events around Kubernetes and AI security.
+          I like infrastructure that is reproducible, observable, and hard to break into.
+        </p>
+      </div>
+      <ul class="about-facts">
+        <li><span class="fact-label">Role</span> Cloud Engineer @ SecureKloud</li>
+        <li><span class="fact-label">Focus</span> GCP · AWS · IaC · FinOps</li>
+        <li><span class="fact-label">Security</span> GCP Security certified · CEH v12</li>
+        <li><span class="fact-label">Location</span> India (IST)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="container section reveal">
+    <h2><span class="section-num">02.</span> Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Cloud Platforms</h3>
+        <ul class="tags">
+          <li>GCP — Cloud Run</li><li>Cloud SQL</li><li>VPC &amp; Load Balancing</li>
+          <li>IAM · IAP · WIF</li><li>Document AI</li><li>Vertex AI</li>
+          <li>AWS — EC2 · Lambda</li><li>S3 · ECS · Beanstalk</li><li>OpenSearch · CloudFront</li>
+          <li>OCI (basics)</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>IaC &amp; CI/CD</h3>
+        <ul class="tags">
+          <li>Terraform</li><li>Reverse-terraforming live infra</li>
+          <li>Jenkins</li><li>Bitbucket Pipelines</li><li>GitHub Actions</li><li>Git</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Containers</h3>
+        <ul class="tags">
+          <li>Docker</li><li>Kubernetes</li><li>Cloud Run jobs &amp; services</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Scripting &amp; Automation</h3>
+        <ul class="tags">
+          <li>Python</li><li>Bash</li><li>PowerShell</li>
+          <li>Google Apps Script</li><li>Power Automate</li><li>M365 / Teams integrations</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>FinOps &amp; AI-Ops</h3>
+        <ul class="tags">
+          <li>Billing exports → BigQuery</li><li>Cost estimation &amp; CUD modelling</li>
+          <li>Budgets &amp; alerts</li><li>Log correlation</li><li>Monitoring dashboards</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Security</h3>
+        <ul class="tags">
+          <li>Cloud IAM hardening</li><li>Identity-Aware Proxy</li>
+          <li>Secret rotation &amp; sync</li><li>Vaultwarden</li>
+          <li>Burp Suite</li><li>Nmap</li><li>CTFs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="container section reveal">
+    <h2><span class="section-num">03.</span> Experience</h2>
+    <div class="timeline">
+      <article class="timeline-item">
+        <div class="timeline-meta">
+          <h3>Cloud Engineer</h3>
+          <p class="timeline-org">SecureKloud Technologies</p>
+          <p class="timeline-dates">2025 — Present</p>
+        </div>
+        <ul class="timeline-points">
+          <li>Built and stabilized <strong>three production-grade GCP environments</strong> end-to-end — VPC networking, IAM, Cloud Run, Cloud SQL, load balancing, and domain mapping — for enterprise clients in banking, housing finance, and logistics.</li>
+          <li>Migrated live AI/ML and document-processing projects from standalone (No-Org) accounts into a <strong>centralized GCP organization</strong> with zero post-migration disruption, covering dependency validation, IAM alignment, and billing mapping.</li>
+          <li>Drove <strong>Google Partner Hub solution validation</strong> and secured GCP Marketplace Producer Portal access, enabling Marketplace publishing for an AI document-processing platform.</li>
+          <li>Automated <strong>FinOps</strong>: billing export pipelines, scheduled email cost reports, and multi-scenario estimations (pay-as-you-go vs. 1-year vs. 3-year commitments) used in client proposals.</li>
+          <li>Shipped ops automation: AWS Lambda <strong>tag enforcement</strong>, M365 → Teams <strong>on-call alerting</strong>, GCS bucket migration tooling, and cross-cloud secret sync with key rotation.</li>
+        </ul>
+      </article>
+      <article class="timeline-item">
+        <div class="timeline-meta">
+          <h3>Associate Cloud Engineer</h3>
+          <p class="timeline-org">Project-based</p>
+          <p class="timeline-dates">Earlier</p>
+        </div>
+        <ul class="timeline-points">
+          <li>Designed CI/CD pipelines with <strong>Jenkins and Docker</strong>, automating deployment of 5+ web applications to AWS EC2, ECS, and Elastic Beanstalk and cutting deployment time by ~70%.</li>
+          <li>Managed and optimized AWS services (EBS, ElastiCache, OpenSearch, CloudFront, VPC), administered IAM for a 20+ member team, and integrated Oracle Fusion / BI Publisher service accounts for automated reporting.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="container section reveal">
+    <h2><span class="section-num">04.</span> Featured Projects</h2>
+    <div class="cards-grid">
+      <article class="card">
+        <h3>GCP Organization Migration</h3>
+        <p>Moved live AI/ML and document-AI projects from standalone accounts into a governed GCP organization — pre-migration assessment, dependency validation, IAM and billing realignment, and post-cutover verification with zero service disruption.</p>
+        <ul class="tags"><li>GCP</li><li>IAM</li><li>Billing</li><li>Governance</li></ul>
+      </article>
+      <article class="card">
+        <h3>Production Cloud Platforms</h3>
+        <p>Stood up three enterprise production environments on GCP end-to-end: VPC design, firewall and routing, Cloud Run services and jobs, Cloud SQL, HTTPS load balancing, and domain mapping — then hardened them through real incident troubleshooting.</p>
+        <ul class="tags"><li>Cloud Run</li><li>Cloud SQL</li><li>VPC</li><li>Load Balancing</li></ul>
+      </article>
+      <article class="card">
+        <h3>GCP Marketplace Enablement</h3>
+        <p>Took an AI document-processing platform through Google Partner Hub solution validation to Producer Portal access — the commercial path to publishing a SaaS product on GCP Marketplace.</p>
+        <ul class="tags"><li>Marketplace</li><li>Partner Hub</li><li>SaaS</li></ul>
+      </article>
+      <article class="card">
+        <h3>Self-Hosted Vaultwarden</h3>
+        <p>Deployed a self-hosted Vaultwarden password manager from proof-of-concept through budgeting to production on AWS and GCP — Docker, TLS, custom domains, backups, and network hardening.</p>
+        <ul class="tags"><li>AWS EC2</li><li>Docker</li><li>TLS/DNS</li><li>Security</li></ul>
+      </article>
+      <article class="card">
+        <h3>FinOps Automation</h3>
+        <p>Built billing export pipelines and scheduled HTML email cost reports with Apps Script, plus reservation-vs-PAYG cost models that shaped client infrastructure decisions and budgets.</p>
+        <ul class="tags"><li>BigQuery</li><li>Apps Script</li><li>Budgets</li><li>FinOps</li></ul>
+      </article>
+      <article class="card">
+        <h3>AI-Ops &amp; Alert Automation</h3>
+        <p>Prototyped log correlation across cloud providers and shipped on-call automation: M365 mailbox events routed to Teams via AWS Lambda, and Lambda-based resource tag enforcement for governance.</p>
+        <ul class="tags"><li>Lambda</li><li>AI-Ops</li><li>Teams</li><li>Monitoring</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ SECURITY ============ -->
+  <section id="security" class="container section reveal">
+    <h2><span class="section-num">05.</span> Security &amp; Certifications</h2>
+    <div class="cards-grid security-grid">
+      <article class="card cert-card">
+        <div class="cert-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>Google Cloud Security</h3>
+        <p>Certified in Google Cloud security — IAM design, Identity-Aware Proxy, workload identity federation, and organization policy in practice, not just on paper.</p>
+      </article>
+      <article class="card cert-card">
+        <div class="cert-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/><path d="M7 9l3 2.5L7 14M12.5 14H17"/></svg>
+        </div>
+        <h3>CEH v12 Study</h3>
+        <p>Working through Certified Ethical Hacker v12 with public study notes — reconnaissance, web app testing with Burp Suite, and network scanning with Nmap.</p>
+        <a class="card-link" href="https://github.com/UK-512/CEHv12" target="_blank" rel="noopener">Study notes →</a>
+      </article>
+      <article class="card cert-card">
+        <div class="cert-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+        </div>
+        <h3>CTFs &amp; Community</h3>
+        <p>Active in the Null security community — Kubernetes CTFs, AI security sessions, and SOC fundamentals. Learning offense to build better defense.</p>
+        <a class="card-link" href="https://github.com/UK-512/Null-Kube-CTF" target="_blank" rel="noopener">Kube CTF →</a>
+        <a class="card-link" href="https://github.com/UK-512/TCM-SOC101" target="_blank" rel="noopener">SOC 101 →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ GITHUB ============ -->
+  <section id="github" class="container section reveal">
+    <h2><span class="section-num">06.</span> On GitHub</h2>
+    <p class="section-lead">A live look at what I'm building and studying — fetched straight from the GitHub API.</p>
+    <div class="cards-grid" id="repoGrid">
+      <!-- Populated by script.js; static fallback below is replaced on success -->
+      <article class="card repo-card">
+        <h3><a href="https://github.com/UK-512/CEHv12" target="_blank" rel="noopener">CEHv12</a></h3>
+        <p>Certified Ethical Hacker v12 study notes.</p>
+      </article>
+      <article class="card repo-card">
+        <h3><a href="https://github.com/UK-512/Null-Kube-CTF" target="_blank" rel="noopener">Null-Kube-CTF</a></h3>
+        <p>Kubernetes capture-the-flag notes and solutions.</p>
+      </article>
+      <article class="card repo-card">
+        <h3><a href="https://github.com/UK-512/TCM-SOC101" target="_blank" rel="noopener">TCM-SOC101</a></h3>
+        <p>SOC fundamentals coursework and notes.</p>
+      </article>
+    </div>
+    <p class="section-foot"><a class="btn btn-ghost" href="https://github.com/UK-512?tab=repositories" target="_blank" rel="noopener">All repositories →</a></p>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="container section section-contact reveal">
+    <h2><span class="section-num">07.</span> Get in touch</h2>
+    <p class="contact-lead">
+      Whether it's a cloud migration, a platform build, a FinOps question, or a security chat —
+      my inbox is open.
+    </p>
+    <a class="btn btn-primary btn-lg" href="mailto:udaycharan12@gmail.com">udaycharan12@gmail.com</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© <span id="year">2026</span> Udayakrishna Duraisamy</p>
+    <p><a href="https://github.com/UK-512" target="_blank" rel="noopener">github.com/UK-512</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -1544,3 +1544,14 @@ button.btn { font: inherit; cursor: pointer; }
 :root[data-template="print"] .section-philosophy { padding: 1rem 0; }
 :root[data-template="print"] .achieve-list { margin-top: 1rem; gap: 0.4rem; font-size: 0.9rem; }
 :root[data-template="print"] #resumeBtn { display: none; }
+
+/* ---------- per-role tech tags in timeline ---------- */
+.timeline-tech {
+  margin-top: 0.9rem;
+}
+.timeline-tech li {
+  font-size: 0.72rem;
+  opacity: 0.9;
+}
+:root[data-template="print"] .timeline-tech { margin-top: 0.5rem; }
+:root[data-template="print"] .timeline-tech li { font-size: 0.75rem; }

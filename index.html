@@ -29,9 +29,18 @@
       <li><a href="#github">GitHub</a></li>
       <li><a href="#contact">Contact</a></li>
       <li>
-        <button class="theme-toggle" id="templateToggle" aria-label="Switch template" title="Switch template (classic / terminal)">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 9l3 3-3 3M12 15h6"/></svg>
-        </button>
+        <label class="template-picker" title="Switch template">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 9l3 3-3 3M12 15h6"/></svg>
+          <select id="templateSelect" aria-label="Choose template">
+            <option value="classic">Classic</option>
+            <option value="terminal">Terminal</option>
+            <option value="swiss">Swiss</option>
+            <option value="bento">Bento</option>
+            <option value="editorial">Editorial</option>
+            <option value="blueprint">Blueprint</option>
+            <option value="print">Print / CV</option>
+          </select>
+        </label>
       </li>
       <li>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">

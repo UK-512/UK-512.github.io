@@ -28,26 +28,30 @@
     });
   }
 
-  /* ---------- template switcher (classic / terminal) ---------- */
-  var TEMPLATES = ["classic", "terminal"];
-  var templateToggle = document.getElementById("templateToggle");
+  /* ---------- template switcher ---------- */
+  var TEMPLATES = ["classic", "terminal", "swiss", "bento", "editorial", "blueprint", "print"];
+  var templateSelect = document.getElementById("templateSelect");
+
+  function applyTemplate(name) {
+    if (name === "classic") {
+      root.removeAttribute("data-template");
+    } else {
+      root.setAttribute("data-template", name);
+    }
+  }
 
   var savedTemplate = null;
   try { savedTemplate = localStorage.getItem("template"); } catch (e) { /* ignore */ }
   if (TEMPLATES.indexOf(savedTemplate) > 0) {
-    root.setAttribute("data-template", savedTemplate);
+    applyTemplate(savedTemplate);
   }
 
-  if (templateToggle) {
-    templateToggle.addEventListener("click", function () {
-      var current = root.getAttribute("data-template") || "classic";
-      var next = TEMPLATES[(TEMPLATES.indexOf(current) + 1) % TEMPLATES.length];
-      if (next === "classic") {
-        root.removeAttribute("data-template");
-      } else {
-        root.setAttribute("data-template", next);
-      }
-      try { localStorage.setItem("template", next); } catch (e) { /* ignore */ }
+  if (templateSelect) {
+    templateSelect.value = TEMPLATES.indexOf(savedTemplate) >= 0 ? savedTemplate : "classic";
+    templateSelect.addEventListener("change", function () {
+      var name = TEMPLATES.indexOf(templateSelect.value) >= 0 ? templateSelect.value : "classic";
+      applyTemplate(name);
+      try { localStorage.setItem("template", name); } catch (e) { /* ignore */ }
     });
   }
 

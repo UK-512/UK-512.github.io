@@ -1,6 +1,6 @@
 # uk-512.github.io
 
-Personal portfolio of **Udayakrishna Duraisamy** — Cloud Engineer (GCP · AWS · DevOps · Cloud Security).
+Personal portfolio of **Udayakrishna Duraisamy** — Cloud Security Engineer, building secure, automated, AI-enabled cloud platforms.
 
 **Live site:** https://uk-512.github.io
 
@@ -8,7 +8,7 @@ Personal portfolio of **Udayakrishna Duraisamy** — Cloud Engineer (GCP · AWS 
 
 Plain HTML, CSS, and JavaScript — no frameworks, no build step. Deploys directly via GitHub Pages.
 
-- `index.html` — single-page portfolio (about, skills, experience, projects, security, contact)
+- `index.html` — single-page portfolio (about, core expertise, experience, projects, technical labs, certifications & achievements, GitHub, contact)
 - `styles.css` — dark/light theming and seven switchable templates (Classic, Terminal, Swiss, Bento, Editorial, Blueprint, Print/CV) via CSS custom properties
 - `script.js` — theme toggle, template dropdown, mobile nav, scroll reveal, and curated GitHub repo cards enriched live from the GitHub API
 

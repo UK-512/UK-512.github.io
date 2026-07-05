@@ -55,6 +55,22 @@
     });
   }
 
+  /* ---------- resume download: Print template + print dialog ---------- */
+  var resumeBtn = document.getElementById("resumeBtn");
+  if (resumeBtn) {
+    resumeBtn.addEventListener("click", function () {
+      var previous = root.getAttribute("data-template") || "classic";
+      applyTemplate("print");
+      if (templateSelect) templateSelect.value = "print";
+      // Let the print layout paint before the dialog opens; restore after.
+      setTimeout(function () {
+        window.print();
+        applyTemplate(previous);
+        if (templateSelect) templateSelect.value = previous;
+      }, 150);
+    });
+  }
+
   /* ---------- mobile nav ---------- */
   var navToggle = document.getElementById("navToggle");
   var navLinks = document.getElementById("navLinks");

@@ -165,7 +165,7 @@ a:hover { text-decoration: underline; }
   gap: 2.5rem;
   padding-top: 5rem;
   padding-bottom: 4rem;
-  min-height: 70vh;
+  min-height: min(70vh, 640px);
 }
 
 .hero-hello {
@@ -1479,3 +1479,68 @@ html.js .reveal.visible {
   :root[data-template="print"] .section { break-inside: avoid-page; }
   :root[data-template="print"] a { text-decoration: none; color: var(--text); }
 }
+
+/* ---------- achievements list & cert roadmap ---------- */
+.achieve-list {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+  color: var(--text-muted);
+}
+.achieve-list li { padding-left: 1.4rem; position: relative; }
+.achieve-list li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+.achieve-list strong { color: var(--text); }
+
+.cert-roadmap {
+  margin: 1.6rem 0 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-top: 1px dashed var(--border);
+  padding-top: 1rem;
+}
+
+/* ---------- philosophy quote ---------- */
+.section-philosophy { padding-top: 2rem; padding-bottom: 2rem; }
+.philosophy {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 0 0 1.75rem;
+  border-left: 3px solid var(--accent);
+}
+.philosophy p {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+  font-size: 1.08rem;
+}
+.philosophy p:first-child {
+  color: var(--text);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.philosophy p:last-child { margin-bottom: 0; }
+
+/* buttons rendered as <button> */
+button.btn { font: inherit; cursor: pointer; }
+
+/* template flavor for new pieces */
+:root[data-template="terminal"] .achieve-list li::before { content: "* "; }
+:root[data-template="terminal"] .philosophy { border-left: 1px dashed var(--accent); }
+:root[data-template="swiss"] .philosophy { border-left: 4px solid var(--accent); }
+:root[data-template="swiss"] .philosophy p:first-child { font-size: 1.7rem; letter-spacing: -0.01em; }
+:root[data-template="editorial"] .philosophy { border-left: none; text-align: center; padding-left: 0; }
+:root[data-template="editorial"] .philosophy p:first-child { font-style: italic; font-weight: 400; font-size: 1.6rem; }
+:root[data-template="blueprint"] .philosophy { border-left: 1px dashed var(--accent); }
+:root[data-template="print"] .philosophy { border-left: 2px solid var(--accent); padding-left: 1rem; }
+:root[data-template="print"] .philosophy p { font-size: 0.95rem; }
+:root[data-template="print"] .philosophy p:first-child { font-size: 1.05rem; }
+:root[data-template="print"] .section-philosophy { padding: 1rem 0; }
+:root[data-template="print"] .achieve-list { margin-top: 1rem; gap: 0.4rem; font-size: 0.9rem; }
+:root[data-template="print"] #resumeBtn { display: none; }
